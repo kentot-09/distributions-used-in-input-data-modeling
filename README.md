@@ -1,159 +1,61 @@
-# 🎲 Modeling and Simulation – Family of Distributions
+# Probability Distribution Problems & Solutions
 
-This project explains the concept of input data modeling using various probability distributions. Each distribution includes:
-- ✅ A short explanation
-- 🌍 A real-world problem scenario
-- 🧠 A simple explanation-based solution
+### 1. Exponential Distribution  
+**Problem**: Pizza delivery averages 15 minutes. What's the chance your order arrives in under 10 minutes?  
+**Solution**:  
+`P(X < 10) = 1 - e^(-10/15) ≈ 0.4866`  
+**Answer**: 48.7% chance
 
-These distributions are commonly used in simulations to model randomness and uncertainty in systems like logistics, reliability, customer flow, and time management.
+### 2. Normal Distribution  
+**Problem**: IQ scores average 100 (σ=15). What percentage score above 130?  
+**Solution**:  
+`Z = (130-100)/15 = 2 → P(X > 2) ≈ 0.0228`  
+**Answer**: 2.28%
 
----
+### 3. Poisson Distribution  
+**Problem**: A hospital averages 4 births/night. What's P(7 births)?  
+**Solution**:  
+`P(X=7) = (e^-4 * 4^7)/7! ≈ 0.0595`  
+**Answer**: 5.95%
 
-## 1️⃣ Exponential Distribution
+### 4. Binomial Distribution  
+**Problem**: Biased coin (60% heads) flipped 20 times. P(12 heads)?  
+**Solution**:  
+`C(20,12)*(0.6)^12*(0.4)^8 ≈ 0.1797`  
+**Answer**: 17.97%
 
-**Concept:**  
-Models the time between events in a Poisson process. Common for modeling **waiting times** (e.g., time between calls, arrivals).
+### 5. Triangular Distribution  
+**Problem**: Task duration: min=8d, max=12d, likely=10d. Expected time?  
+**Solution**:  
+`(8+10+12)/3 = 10`  
+**Answer**: 10 days
 
-**Problem:**  
-A call center receives calls every 5 minutes on average. What is the chance that the next call happens within 3 minutes?
+### 6. Lognormal Distribution  
+**Problem**: Stock has μ=0.1, σ=0.2. P(return > 20%)?  
+**Solution**:  
+`Z = (ln(1.2)-0.1)/0.2 ≈ 0.4055 → P ≈ 0.3427`  
+**Answer**: 34.27%
 
-**Solution:**  
-We use exponential distribution to estimate the likelihood of the next call arriving in 3 minutes based on a known average arrival rate.
+### 7. Gamma Distribution  
+**Problem**: Website gets 500 visits/day. P(1000 visits in 1 day)?  
+**Solution**:  
+`Gamma CDF(k=1000, λ=500) ≈ 0.9999`  
+**Answer**: 99.99%
 
----
+### 8. Weibull Distribution  
+**Problem**: Machine part (shape=1.5, scale=1000h). P(failure < 500h)?  
+**Solution**:  
+`1 - e^-(500/1000)^1.5 ≈ 0.2978`  
+**Answer**: 29.78%
 
-## 2️⃣ Normal Distribution
+### 9. Beta Distribution  
+**Problem**: Batter hits .300 historically. After 10/30, P(true > .250)?  
+**Solution**:  
+`Beta(α=11, β=21) → P ≈ 0.9104`  
+**Answer**: 91.04%
 
-**Concept:**  
-A bell-shaped curve where most data points are close to the average. Used for **natural variation** in height, grades, or measurement errors.
-
-**Problem:**  
-Student test scores average 75 with a standard deviation of 10. What percentage of students scored between 65 and 85?
-
-**Solution:**  
-Use the normal distribution to estimate the number of students within one standard deviation of the mean score.
-
----
-
-## 3️⃣ Poisson Distribution
-
-**Concept:**  
-Used for modeling **number of occurrences** in a fixed time or space, when events happen independently.
-
-**Problem:**  
-A website gets an average of 10 customer inquiries per hour. What is the probability that exactly 8 inquiries arrive this hour?
-
-**Solution:**  
-We use Poisson distribution with a mean (λ) of 10 to determine the chance of 8 inquiries in a fixed interval.
-
----
-
-## 4️⃣ Binomial Distribution
-
-**Concept:**  
-Models the **number of successes** in a fixed number of trials, with only success or failure (yes/no).
-
-**Problem:**  
-You call 10 potential customers. Each has a 30% chance of saying “yes.” What’s the probability exactly 4 say yes?
-
-**Solution:**  
-We use the binomial distribution to calculate the likelihood of getting 4 successes out of 10 attempts.
-
----
-
-## 5️⃣ Triangular Distribution
-
-**Concept:**  
-Used when only the **minimum, most likely, and maximum** values are known. Helpful for **project estimation**.
-
-**Problem:**  
-You estimate a task will take at least 2 days, most likely 4 days, and at most 7 days. What’s the expected duration?
-
-**Solution:**  
-Apply the triangular distribution to calculate a weighted average time for realistic project planning.
-
----
-
-## 6️⃣ Lognormal Distribution
-
-**Concept:**  
-Used for modeling **positively skewed** data where the logarithm of the variable is normally distributed.
-
-**Problem:**  
-You’re analyzing customer income data. Most earn between $20k and $60k, but some earn well over $200k.
-
-**Solution:**  
-Use a lognormal distribution to handle skewed income data more accurately than a normal distribution.
-
----
-
-## 7️⃣ Gamma Distribution
-
-**Concept:**  
-Models **waiting times until multiple events** occur. It generalizes exponential distribution.
-
-**Problem:**  
-A manufacturing process has 3 stages, each with unpredictable time. What’s the expected total process time?
-
-**Solution:**  
-Gamma distribution estimates the total time for all stages by combining the variability of each one.
-
----
-
-## 8️⃣ Beta Distribution
-
-**Concept:**  
-Used to model **probabilities and proportions**, especially between 0 and 1. Useful in **Bayesian updating**.
-
-**Problem:**  
-Your website has a conversion rate between 10% and 40%. You want to model this uncertainty.
-
-**Solution:**  
-Use beta distribution to simulate uncertain probability values based on prior beliefs or observed trials.
-
----
-
-## 9️⃣ Weibull Distribution
-
-**Concept:**  
-Often used in **reliability and failure analysis**, modeling time until failure of a component.
-
-**Problem:**  
-Your company sells light bulbs. You want to predict how many will fail after 1,000 hours of use.
-
-**Solution:**  
-Use Weibull distribution to estimate product lifespan and failure rates based on wear-out behavior.
-
----
-
-## 🔟 Uniform Distribution
-
-**Concept:**  
-Every value within a given range has **equal probability**. Useful when all outcomes are equally likely.
-
-**Problem:**  
-A customer could arrive anytime between 9:00 AM and 5:00 PM. You want to simulate their arrival time.
-
-**Solution:**  
-Use uniform distribution between 9 and 17 to model the equal chance of arrival at any time within the range.
-
----
-
-## ✅ Summary
-
-| Distribution       | Used For                                 |
-|--------------------|-------------------------------------------|
-| Exponential        | Time between random events                |
-| Normal             | Natural variation, bell-curve behavior    |
-| Poisson            | Count of events in fixed time             |
-| Binomial           | Yes/No trial success counts               |
-| Triangular         | Estimate based on min/most likely/max     |
-| Lognormal          | Skewed continuous data                    |
-| Gamma              | Time until multiple events                |
-| Beta               | Probability values (0 to 1)               |
-| Weibull            | Reliability and failure modeling          |
-| Uniform            | Equal chance across a fixed range         |
-
----
-
-
+### 10. Uniform Distribution  
+**Problem**: Lottery number (100-200). P(120 ≤ X ≤ 140)?  
+**Solution**:  
+`(140-120)/(200-100) = 0.2`  
+**Answer**: 20%
